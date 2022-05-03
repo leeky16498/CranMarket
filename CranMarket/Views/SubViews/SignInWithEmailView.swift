@@ -44,7 +44,6 @@ struct SignInWithEmailView: View {
                 }//vst
                 .padding()
                 
-                
             .navigationTitle("Sign Up ")
             .navigationBarTitleDisplayMode(.large)
             }

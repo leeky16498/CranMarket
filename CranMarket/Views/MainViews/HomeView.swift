@@ -55,7 +55,7 @@ struct HomeView: View {
                             SignUpWithEmailView(showMainView: $showMainView)
                         }
                     }
-                    .padding(.horizontal)
+                    .padding()
                 }
                 Spacer()
             }//vst
@@ -95,7 +95,7 @@ extension HomeView {
         }
         .shadow(color: .gray.opacity(0.2), radius: 10, x: 1, y: 1)
         .frame(height : 60)
-        .padding()
+        .padding(.horizontal)
     }
     
     @ViewBuilder
@@ -116,7 +116,7 @@ extension HomeView {
             .frame(maxWidth : .infinity)
             .background(.blue)
             .cornerRadius(6)
-            .padding()
+            .padding(.horizontal)
         })
         .shadow(color: .gray.opacity(0.2), radius: 10, x: 1, y: 1)
         .fullScreenCover(isPresented: $showMainView) {

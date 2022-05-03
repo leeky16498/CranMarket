@@ -27,6 +27,7 @@
 		790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12432821BA4C008D1D2A /* FeedViewModel.swift */; };
 		790E12462821BA68008D1D2A /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12452821BA68008D1D2A /* FeedModel.swift */; };
 		790E124A2821C115008D1D2A /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12492821C115008D1D2A /* SignInWithEmailView.swift */; };
+		790E124C2821C203008D1D2A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E124B2821C203008D1D2A /* PostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		790E12432821BA4C008D1D2A /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		790E12452821BA68008D1D2A /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		790E12492821C115008D1D2A /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
+		790E124B2821C203008D1D2A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				790E12352821760D008D1D2A /* Info.plist */,
 				790E123228216A3A008D1D2A /* CranMarket.entitlements */,
 				790E120528216387008D1D2A /* CranMarketApp.swift */,
+				790E124D2821C2EA008D1D2A /* extensions */,
 				790E1213282163D6008D1D2A /* Views */,
 				790E1217282163EB008D1D2A /* Utilities */,
 				790E1216282163E5008D1D2A /* Services */,
@@ -154,6 +157,7 @@
 			children = (
 				790E123D28217F74008D1D2A /* SignUpWithEmailView.swift */,
 				790E12492821C115008D1D2A /* SignInWithEmailView.swift */,
+				790E124B2821C203008D1D2A /* PostView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -166,6 +170,13 @@
 				790E124128218683008D1D2A /* FeedView.swift */,
 			);
 			path = MainViews;
+			sourceTree = "<group>";
+		};
+		790E124D2821C2EA008D1D2A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 				790E12402821860E008D1D2A /* MainView.swift in Sources */,
 				790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */,
 				790E123B28217CA7008D1D2A /* AuthService.swift in Sources */,
+				790E124C2821C203008D1D2A /* PostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
