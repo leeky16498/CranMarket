@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct SignUpWithEmailView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -24,22 +24,18 @@ struct SignUpView: View {
             ScrollView {
                 VStack(alignment : .leading) {
                     textFieldStyle(title: "E-mail", bindingText: $email)
-                    
                     textFieldStyle(title: "Password", bindingText: $password)
-                    
                     textFieldStyle(title: "Last name", bindingText: $lastName)
-                    
                     textFieldStyle(title: "First name", bindingText: $firstName)
-                    
                     textFieldStyle(title: "User name", bindingText: $userName)
                     
                     Button(action: {
                         AuthService.instance.signUpWithEmail(email: email, password: password) { result in
                             if result {
                                 presentationMode.wrappedValue.dismiss()
-                                showMainView.toggle()
-                            } else {
-                                print("cannot close the view")
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    showMainView.toggle()
+                                }
                             }
                         }
                     }, label: {
@@ -65,11 +61,11 @@ struct SignUpView: View {
 
 //struct SignUpView_Previews: PreviewProvider {
 //    static var previews: some View {
-//            SignUpView()
+//        SignUpView(showMainView: $showMainView)
 //    }
 //}
 
-extension SignUpView {
+extension SignUpWithEmailView {
     
     private func textFieldStyle(title : String, bindingText : Binding<String>) -> some View {
         VStack {
@@ -87,5 +83,4 @@ extension SignUpView {
         }
         .padding(.vertical)
     }
-    
 }

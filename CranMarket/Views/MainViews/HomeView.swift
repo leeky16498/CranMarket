@@ -11,6 +11,7 @@ import AuthenticationServices
 struct HomeView: View {
     
     @State private var showSignUpSheet : Bool = false
+    @State private var showSignInSheet : Bool = false
     @State private var showMainView : Bool = false
     
     var body: some View {
@@ -51,11 +52,12 @@ struct HomeView: View {
                             MainView()
                         }
                         .sheet(isPresented: $showSignUpSheet) {
-                            SignUpView(showMainView: $showMainView)
+                            SignUpWithEmailView(showMainView: $showMainView)
                         }
                     }
                     .padding(.horizontal)
                 }
+                Spacer()
             }//vst
         }//nav
     }
@@ -82,6 +84,7 @@ extension HomeView {
                     let email = credential.email
                     let firstName = credential.fullName?.givenName
                     let lastName = credential.fullName?.familyName
+                    showMainView.toggle()
                 default:
                     break
                 }
@@ -98,7 +101,7 @@ extension HomeView {
     @ViewBuilder
     private var emailSignInButton : some View {
         Button(action: {
-            
+            showSignInSheet.toggle()
         }, label: {
             HStack {
                 Image(systemName: "envelope")
@@ -116,12 +119,22 @@ extension HomeView {
             .padding()
         })
         .shadow(color: .gray.opacity(0.2), radius: 10, x: 1, y: 1)
+        .fullScreenCover(isPresented: $showMainView) {
+            MainView()
+        }
+        .sheet(isPresented: $showSignInSheet) {
+            SignInWithEmailView(showMainView: $showMainView)
+        }
     }
     
     @ViewBuilder
     private var googleSignInButton : some View {
         Button(action: {
-            GoogleSignIn.instance.googleSignIn()
+            GoogleSignIn.instance.googleSignIn { result in
+                if result {
+                    showMainView.toggle()
+                }
+            }
         }, label: {
             HStack {
                 Image("googlemark")

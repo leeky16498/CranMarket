@@ -19,15 +19,15 @@ struct MainView: View {
             
             FeedView()
                 .tabItem({
-                    Image(systemName: "magnifyingglass")
-                    Text("Browse")
+                    Image(systemName: "camera.fill")
+                    Text("Post")
                 })
                 .tag(1)
             
             FeedView()
                 .tabItem({
-                    Image(systemName: "person.fill")
-                    Text("Profile")
+                    Image(systemName: "heart.fill")
+                    Text("Saved")
                 })
                 .tag(2)
         }

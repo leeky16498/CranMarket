@@ -13,12 +13,15 @@ class GoogleSignIn {
     
     static let instance = GoogleSignIn()
     
-    func googleSignIn() {
+    var isSignedIn : Bool = false
+    
+    func googleSignIn(completion : @escaping (_ result : Bool) -> ()) {
         guard let clientID = FirebaseApp.app()?.options.clientID else {return}
         
         let config = GIDConfiguration(clientID: clientID)
         
         GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) { [weak self] user, error in
+            
             if let error = error {
                 print(error.localizedDescription)
               return
@@ -35,14 +38,16 @@ class GoogleSignIn {
 
             //Firebase Auth
             
-            Auth.auth().signIn(with: credential) { result, error in
+            Auth.auth().signIn(with: credential) { [weak self] result, error in
                 if let error = error {
                     print(error.localizedDescription)
+                    completion(false)
                     return
                 }
-                //display user name
+                
                 guard let user = result?.user else {return}
                 print("\(user.displayName) success")
+                completion(true)
             }
         }
     }

@@ -21,9 +21,11 @@
 		790E122B28216558008D1D2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790E122A28216558008D1D2A /* GoogleService-Info.plist */; };
 		790E123928217B89008D1D2A /* GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123828217B89008D1D2A /* GoogleSignIn.swift */; };
 		790E123B28217CA7008D1D2A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123A28217CA7008D1D2A /* AuthService.swift */; };
-		790E123E28217F74008D1D2A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123D28217F74008D1D2A /* SignUpView.swift */; };
+		790E123E28217F74008D1D2A /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123D28217F74008D1D2A /* SignUpWithEmailView.swift */; };
 		790E12402821860E008D1D2A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123F2821860E008D1D2A /* MainView.swift */; };
 		790E124228218683008D1D2A /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E124128218683008D1D2A /* FeedView.swift */; };
+		790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12432821BA4C008D1D2A /* FeedViewModel.swift */; };
+		790E12462821BA68008D1D2A /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12452821BA68008D1D2A /* FeedModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +39,11 @@
 		790E12352821760D008D1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		790E123828217B89008D1D2A /* GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignIn.swift; sourceTree = "<group>"; };
 		790E123A28217CA7008D1D2A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		790E123D28217F74008D1D2A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		790E123D28217F74008D1D2A /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
 		790E123F2821860E008D1D2A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		790E124128218683008D1D2A /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		790E12432821BA4C008D1D2A /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		790E12452821BA68008D1D2A /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 		790E1214282163DA008D1D2A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				790E12432821BA4C008D1D2A /* FeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 		790E1215282163DD008D1D2A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				790E12452821BA68008D1D2A /* FeedModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 		790E122C28216784008D1D2A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				790E123D28217F74008D1D2A /* SignUpWithEmailView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -152,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				790E120728216387008D1D2A /* HomeView.swift */,
-				790E123D28217F74008D1D2A /* SignUpView.swift */,
 				790E123F2821860E008D1D2A /* MainView.swift */,
 				790E124128218683008D1D2A /* FeedView.swift */,
 			);
@@ -244,11 +250,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				790E124228218683008D1D2A /* FeedView.swift in Sources */,
+				790E12462821BA68008D1D2A /* FeedModel.swift in Sources */,
 				790E120828216387008D1D2A /* HomeView.swift in Sources */,
-				790E123E28217F74008D1D2A /* SignUpView.swift in Sources */,
+				790E123E28217F74008D1D2A /* SignUpWithEmailView.swift in Sources */,
 				790E123928217B89008D1D2A /* GoogleSignIn.swift in Sources */,
 				790E120628216387008D1D2A /* CranMarketApp.swift in Sources */,
 				790E12402821860E008D1D2A /* MainView.swift in Sources */,
+				790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */,
 				790E123B28217CA7008D1D2A /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
