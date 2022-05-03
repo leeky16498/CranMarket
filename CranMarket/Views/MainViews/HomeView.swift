@@ -10,9 +10,12 @@ import AuthenticationServices
 
 struct HomeView: View {
     
+    @State private var showSignUpSheet : Bool = false
+    @State private var showMainView : Bool = false
+    
     var body: some View {
         NavigationView {
-            VStack(spacing : 20) {
+            VStack(spacing : 40) {
                 HStack {
                     VStack(alignment : .leading) {
                         Text("Welcome to")
@@ -35,8 +38,24 @@ struct HomeView: View {
                     appleSignInButton
                     googleSignInButton
                     emailSignInButton
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            showSignUpSheet.toggle()
+                        }, label: {
+                            Text("Don't you have account yet?")
+                                .font(.headline)
+                        })
+                        .fullScreenCover(isPresented: $showMainView) {
+                            MainView()
+                        }
+                        .sheet(isPresented: $showSignUpSheet) {
+                            SignUpView(showMainView: $showMainView)
+                        }
+                    }
+                    .padding(.horizontal)
                 }
- 
             }//vst
         }//nav
     }

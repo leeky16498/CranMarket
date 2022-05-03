@@ -20,6 +20,10 @@
 		790E12272821652E008D1D2A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 790E12262821652E008D1D2A /* GoogleSignInSwift */; };
 		790E122B28216558008D1D2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790E122A28216558008D1D2A /* GoogleService-Info.plist */; };
 		790E123928217B89008D1D2A /* GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123828217B89008D1D2A /* GoogleSignIn.swift */; };
+		790E123B28217CA7008D1D2A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123A28217CA7008D1D2A /* AuthService.swift */; };
+		790E123E28217F74008D1D2A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123D28217F74008D1D2A /* SignUpView.swift */; };
+		790E12402821860E008D1D2A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E123F2821860E008D1D2A /* MainView.swift */; };
+		790E124228218683008D1D2A /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E124128218683008D1D2A /* FeedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		790E123228216A3A008D1D2A /* CranMarket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CranMarket.entitlements; sourceTree = "<group>"; };
 		790E12352821760D008D1D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		790E123828217B89008D1D2A /* GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignIn.swift; sourceTree = "<group>"; };
+		790E123A28217CA7008D1D2A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		790E123D28217F74008D1D2A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		790E123F2821860E008D1D2A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		790E124128218683008D1D2A /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +83,6 @@
 				790E12352821760D008D1D2A /* Info.plist */,
 				790E123228216A3A008D1D2A /* CranMarket.entitlements */,
 				790E120528216387008D1D2A /* CranMarketApp.swift */,
-				790E120728216387008D1D2A /* HomeView.swift */,
 				790E1213282163D6008D1D2A /* Views */,
 				790E1217282163EB008D1D2A /* Utilities */,
 				790E1216282163E5008D1D2A /* Services */,
@@ -122,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				790E123828217B89008D1D2A /* GoogleSignIn.swift */,
+				790E123A28217CA7008D1D2A /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -143,6 +151,10 @@
 		790E122D2821678A008D1D2A /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				790E120728216387008D1D2A /* HomeView.swift */,
+				790E123D28217F74008D1D2A /* SignUpView.swift */,
+				790E123F2821860E008D1D2A /* MainView.swift */,
+				790E124128218683008D1D2A /* FeedView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -231,9 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				790E124228218683008D1D2A /* FeedView.swift in Sources */,
 				790E120828216387008D1D2A /* HomeView.swift in Sources */,
+				790E123E28217F74008D1D2A /* SignUpView.swift in Sources */,
 				790E123928217B89008D1D2A /* GoogleSignIn.swift in Sources */,
 				790E120628216387008D1D2A /* CranMarketApp.swift in Sources */,
+				790E12402821860E008D1D2A /* MainView.swift in Sources */,
+				790E123B28217CA7008D1D2A /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

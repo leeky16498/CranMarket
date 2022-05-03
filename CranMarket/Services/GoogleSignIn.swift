@@ -41,7 +41,6 @@ class GoogleSignIn {
                     return
                 }
                 //display user name
-                
                 guard let user = result?.user else {return}
                 print("\(user.displayName) success")
             }
