@@ -7,12 +7,14 @@
 
 import SwiftUI
 import UIKit
+import PhotosUI
 
 struct UploadView: View {
     
     @State private var title : String = ""
     @State private var description : String = ""
     @State private var price : String = ""
+    @State private var category : String = ""
     @State private var showImagePicker : Bool = false
     @State private var selectedImages : [UIImage] = []
     
@@ -20,36 +22,36 @@ struct UploadView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing : 20) {
-                    HStack {
-                        Button(action: {
-                            showImagePicker.toggle()
-                        }, label: {
-                            VStack {
-                                Image(systemName: "camera.fill")
-                                    .foregroundColor(.gray)
-                                    .font(.largeTitle)
-                                Text("Add photo")
-                                    .font(.headline)
-                                    .padding(.top, 10)
-                            }
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(.gray, lineWidth: 1)
-                            )
-                        })
-                        .sheet(isPresented: $showImagePicker, content: {
-                           ImagePicker(images: $selectedImages, picker: $showImagePicker)
-                        })
-                        ScrollView(.horizontal) {
-                            ForEach(selectedImages,  id : \.self) { image in
-                                Image(uiImage: image)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            Button(action: {
+                                showImagePicker.toggle()
+                            }, label: {
+                                VStack(alignment : .center) {
+                                    Image(systemName: "camera.fill")
+                                        .foregroundColor(.white)
+                                        .font(.largeTitle)
+                                    Text("Add photo")
+                                        .foregroundColor(.white)
+                                        .font(.headline)
+                                        .padding(.top, 10)
+                                }
+                                .padding()
+                                .background(.blue)
+                                .cornerRadius(12)
+                                .shadow(color: .gray.opacity(0.3), radius: 12, x: 3, y: 3)
+                            })
+                            .sheet(isPresented: $showImagePicker, content: {
+                               ImagePicker(images: $selectedImages, picker: $showImagePicker)
+                            })
+                            
+                            ForEach(selectedImages, id : \.self) {
+                                Image(uiImage: $0)
                                     .resizable()
                                     .frame(width : 100, height : 100)
                                     .cornerRadius(12)
                             }
                         }
-                        Spacer()
                     }
                         .padding()
                     
@@ -66,6 +68,7 @@ struct UploadView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding(.horizontal)
                         .padding(.top, -10)
+                        .autocapitalization(.none)
                     
                     HStack {
                         Text("Description")
@@ -78,6 +81,7 @@ struct UploadView: View {
                     TextEditor(text: $description)
                         .frame(maxWidth : .infinity)
                         .frame(height : UIScreen.main.bounds.height * 0.2)
+                        .autocapitalization(.none)
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -89,15 +93,26 @@ struct UploadView: View {
                         Text("Category")
                             .font(.headline)
                         Spacer()
-                        Menu(content: {
-                            Button(action: {
+                            Menu(content: {
+                                Button(action: {
+                                    category = "Room"
+                                }, label: {
+                                    Text("Room")
+                                })
                                 
+                                Button(action: {
+                                    category = "Electronics"
+                                }, label: {
+                                    Text("Electronics")
+                                })
                             }, label: {
-                                Text("Room")
+                                if category.isEmpty {
+                                    Image(systemName: "chevron.right")
+                                        .padding()
+                                } else {
+                                    Text(category)
+                                }
                             })
-                        }, label: {
-                            Image(systemName: "chevron.right")
-                        })
                     }
                     .padding()
                     
@@ -115,6 +130,19 @@ struct UploadView: View {
                         Text("£")
                     }
                     .padding()
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Upload My Item")
+                            .foregroundColor(.white)
+                            .font(.title3.bold())
+                            .frame(maxWidth : .infinity)
+                            .frame(height : 60)
+                            .background(.blue)
+                            .cornerRadius(12)
+                            .padding()
+                    })
                     
                 }
             }
