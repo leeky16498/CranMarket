@@ -17,7 +17,7 @@ struct MainView: View {
                 })
                 .tag(0)
             
-            FeedView()
+            UploadView()
                 .tabItem({
                     Image(systemName: "camera.fill")
                     Text("Post")

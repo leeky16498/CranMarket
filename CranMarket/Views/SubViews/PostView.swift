@@ -20,7 +20,6 @@ struct PostView: View {
                     .padding(.trailing, 10)
                     .shadow(radius: 5)
                 
-                
                 VStack(alignment : .leading) {
                     Text("Cutie dog")
                         .font(.headline)

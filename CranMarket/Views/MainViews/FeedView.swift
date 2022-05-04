@@ -26,14 +26,11 @@ struct FeedView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu(content: {
-                        menuButton(title: "Room")
-                        menuButton(title: "Electronics")
-                        menuButton(title: "Fashions")
-                        menuButton(title: "Groceries")
-                        menuButton(title: "Books")
-                        menuButton(title: "Vehicles")
-                        menuButton(title: "Sports & Leisure")
-                        menuButton(title: "Others")
+                        Button(action: {
+                            print("Room")
+                        }, label: {
+                            Text("Rooms")
+                        })
                     }, label: {
                         Image(systemName: "slider.vertical.3")
                     })
@@ -47,16 +44,4 @@ struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
         FeedView()
     }
-}
-
-extension FeedView {
-
-    private func menuButton(title : String) -> some View {
-        Button(action: {
-            
-        }, label: {
-            Text(title)
-        })
-    }
-    
 }
