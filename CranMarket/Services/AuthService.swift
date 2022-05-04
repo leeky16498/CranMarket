@@ -37,4 +37,11 @@ class AuthService {
             }
         }
     }
+    
+    func makeUid() -> String {
+        if let uid = Auth.auth().currentUser?.uid {
+            return uid
+        }
+        return ""
+    }
 }
