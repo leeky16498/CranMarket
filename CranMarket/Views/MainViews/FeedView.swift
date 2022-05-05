@@ -10,11 +10,12 @@ import SwiftUI
 struct FeedView: View {
     
     @State private var searchText : String = ""
+    @State private var showUploadView : Bool = false
     
     var body: some View {
         NavigationView{
             ScrollView {
-                VStack {
+                LazyVStack {
                     ForEach(1..<10, id: \.self) {post in
                         PostView()
                     }
@@ -25,15 +26,23 @@ struct FeedView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu(content: {
-                        Button(action: {
-                            print("Room")
+                    HStack {
+                        Menu(content: {
+                            Button(action: {
+                                print("Room")
+                            }, label: {
+                                Text("Rooms")
+                            })
                         }, label: {
-                            Text("Rooms")
+                            Image(systemName: "slider.vertical.3")
                         })
-                    }, label: {
-                        Image(systemName: "slider.vertical.3")
-                    })
+                        
+                        NavigationLink(destination: {
+                            UploadView()
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                    }
                 }
             }
         }

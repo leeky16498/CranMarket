@@ -44,4 +44,16 @@ class AuthService {
         }
         return ""
     }
+    
+    func signOut(completion : (_ result : Bool) -> ()) {
+        do {
+            try Auth.auth().signOut()
+            print("Signout success")
+            completion(true)
+        } catch {
+            print("error to sign out")
+            completion(true)
+        }
+    }
+    
 }

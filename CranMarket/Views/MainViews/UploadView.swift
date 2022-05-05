@@ -20,6 +20,9 @@ struct UploadView: View {
     @State private var category : String = ""
     @State private var showImagePicker : Bool = false
     @State private var selectedImages : [UIImage] = []
+    @State private var timeStamp : Date = Date()
+    @State private var contactInfo : String = ""
+    @State private var showMainView : Bool = false
     
     var body: some View {
         NavigationView {
@@ -44,7 +47,7 @@ struct UploadView: View {
                                                 .padding(.top, 10)
                                         }
                                         .padding()
-                                        .background(.blue)
+                                        .background(.gray)
                                         .cornerRadius(12)
                                         .shadow(color: .gray.opacity(0.3), radius: 12, x: 3, y: 3)
                                     })
@@ -55,6 +58,7 @@ struct UploadView: View {
                                     ForEach(selectedImages, id : \.self) {
                                         Image(uiImage: $0)
                                             .resizable()
+                                            .scaledToFill()
                                             .frame(width : 100, height : 100)
                                             .cornerRadius(12)
                                     }
@@ -131,6 +135,7 @@ struct UploadView: View {
                                 TextField("GBP", text: $price)
                                     .padding()
                                     .frame(width : 100)
+                                    .keyboardType(.numberPad)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 12)
                                             .stroke(.gray.opacity(0.2), lineWidth: 1)
@@ -139,10 +144,30 @@ struct UploadView: View {
                             }
                             .padding()
                             
+                            HStack {
+                                Text("Contact Info")
+                                    .font(.headline)
+                                
+                                TextField("E-mail or Phone numbers", text: $contactInfo)
+                                    .padding()
+                                    .frame(maxWidth : .infinity)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 1)
+                                    )
+                                
+                                Spacer()
+                            }
+                            .padding()
+                            
                             Button(action: {
                                 vm.storeImageWithUrl(image: selectedImages.first!) { url in
-                                    vm.storeItemInformation(uid: AuthService.instance.makeUid(), title: title, description: description, category: category, price: Double(price) ?? 0.0, imageUrl: url)
-                                    presentationMode.wrappedValue.dismiss()
+                                    vm.storeItemInformation(uid: AuthService.instance.makeUid(), title: title, description: description, category: category, price: price, imageUrl: url) { result in
+                                        
+                                        if result {
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                    }
                                 }
                             }, label: {
                                 Text("Upload My Item")
@@ -154,7 +179,7 @@ struct UploadView: View {
                                     .cornerRadius(12)
                                     .padding()
                             })
-                            
+    
                         }
                     }
                 }

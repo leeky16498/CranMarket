@@ -17,17 +17,17 @@ struct MainView: View {
                 })
                 .tag(0)
             
-            UploadView()
-                .tabItem({
-                    Image(systemName: "camera.fill")
-                    Text("Post")
-                })
-                .tag(1)
-            
             FeedView()
                 .tabItem({
                     Image(systemName: "heart.fill")
                     Text("Saved")
+                })
+                .tag(1)
+            
+            ProfileView()
+                .tabItem({
+                    Image(systemName: "person.fill")
+                    Text("My Account")
                 })
                 .tag(2)
         }

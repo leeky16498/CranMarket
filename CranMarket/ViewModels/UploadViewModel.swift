@@ -46,22 +46,39 @@ class UploadViewModel : ObservableObject {
         }
     }
     
-    func storeItemInformation(uid : String, title : String, description : String, category : String, price : Double, imageUrl : URL) {
+    func storeItemInformation(uid : String, title : String, description : String, category : String, price : String, imageUrl : URL, timeStamp : Date = Date(), completion : @escaping (_ result : Bool) -> ()) {
 
         let uid = AuthService.instance.makeUid()
         
-        guard let userData = ["uid" : uid, "title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrl.absoluteString] as? [String : Any] else { return }
+        guard let userData = ["sellerID" : uid, "title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrl.absoluteString, "timestamp" : timeStamp] as? [String : Any] else { return }
         
-        Firestore.firestore().collection("Items").document(uid).setData(userData) { error in
-            if let error = error {
-                print("Error to save userData")
-                
-                return
-            }
-            
-            self.loading = false
-
-            print("Success to save user data")
+        Firestore.firestore()
+            .collection("Whole items")
+            .document(title)
+            .setData(userData) { error in
+                if let error = error {
+                    print("Error to save whole Data")
+                    completion(false)
+                    return
+                }
+                print("Success to save whole data")
+        
+                Firestore.firestore()
+                    .collection("User's items")
+                    .document(uid)
+                    .collection(category)
+                    .document(title)
+                    .setData(userData) { error in
+                        if let error = error {
+                            print("Error to save userData")
+                            completion(false)
+                            return
+                        }
+                        
+                    self.loading = false
+                    print("Success to save user data")
+                    completion(true)
+                }
         }
     }
     
