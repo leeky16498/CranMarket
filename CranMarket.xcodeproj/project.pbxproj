@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		790E120628216387008D1D2A /* CranMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E120528216387008D1D2A /* CranMarketApp.swift */; };
-		790E120828216387008D1D2A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E120728216387008D1D2A /* HomeView.swift */; };
+		790E120828216387008D1D2A /* LogInAneSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E120728216387008D1D2A /* LogInAneSignUpView.swift */; };
 		790E120A28216389008D1D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 790E120928216389008D1D2A /* Assets.xcassets */; };
 		790E120D28216389008D1D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 790E120C28216389008D1D2A /* Preview Assets.xcassets */; };
 		790E121A282164AE008D1D2A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 790E1219282164AE008D1D2A /* FirebaseAuth */; };
@@ -36,12 +36,13 @@
 		79DC4A4D28240272005C7212 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A4C28240272005C7212 /* UserModel.swift */; };
 		79DC4A4F2824044D005C7212 /* SignUpWithEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A4E2824044D005C7212 /* SignUpWithEmailViewModel.swift */; };
 		79DC4A51282405C9005C7212 /* SavedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A50282405C9005C7212 /* SavedItemView.swift */; };
+		79DC4A5328242C6D005C7212 /* OneImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A5228242C6D005C7212 /* OneImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		790E120228216387008D1D2A /* CranMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CranMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		790E120528216387008D1D2A /* CranMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CranMarketApp.swift; sourceTree = "<group>"; };
-		790E120728216387008D1D2A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		790E120728216387008D1D2A /* LogInAneSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInAneSignUpView.swift; sourceTree = "<group>"; };
 		790E120928216389008D1D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		790E120C28216389008D1D2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		790E122A28216558008D1D2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		79DC4A4C28240272005C7212 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		79DC4A4E2824044D005C7212 /* SignUpWithEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailViewModel.swift; sourceTree = "<group>"; };
 		79DC4A50282405C9005C7212 /* SavedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemView.swift; sourceTree = "<group>"; };
+		79DC4A5228242C6D005C7212 /* OneImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +141,9 @@
 		790E1214282163DA008D1D2A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				79DC4A4E2824044D005C7212 /* SignUpWithEmailViewModel.swift */,
 				790E12432821BA4C008D1D2A /* FeedViewModel.swift */,
 				79DC4A44282313E1005C7212 /* UploadViewModel.swift */,
-				79DC4A4E2824044D005C7212 /* SignUpWithEmailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				79DC4A3F2822D0BF005C7212 /* ImagePicker.swift */,
+				79DC4A5228242C6D005C7212 /* OneImagePicker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -186,7 +189,7 @@
 		790E122D2821678A008D1D2A /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				790E120728216387008D1D2A /* HomeView.swift */,
+				790E120728216387008D1D2A /* LogInAneSignUpView.swift */,
 				790E123F2821860E008D1D2A /* MainView.swift */,
 				790E124128218683008D1D2A /* FeedView.swift */,
 				798143A52822BEEA007B2448 /* UploadView.swift */,
@@ -291,7 +294,7 @@
 				790E124228218683008D1D2A /* FeedView.swift in Sources */,
 				790E12462821BA68008D1D2A /* FeedModel.swift in Sources */,
 				79DC4A4F2824044D005C7212 /* SignUpWithEmailViewModel.swift in Sources */,
-				790E120828216387008D1D2A /* HomeView.swift in Sources */,
+				790E120828216387008D1D2A /* LogInAneSignUpView.swift in Sources */,
 				798143A62822BEEA007B2448 /* UploadView.swift in Sources */,
 				79DC4A45282313E1005C7212 /* UploadViewModel.swift in Sources */,
 				790E124A2821C115008D1D2A /* SignInWithEmailView.swift in Sources */,
@@ -305,6 +308,7 @@
 				790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */,
 				790E123B28217CA7008D1D2A /* AuthService.swift in Sources */,
 				79DC4A4D28240272005C7212 /* UserModel.swift in Sources */,
+				79DC4A5328242C6D005C7212 /* OneImagePicker.swift in Sources */,
 				790E124C2821C203008D1D2A /* PostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,8 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct ProfileView: View {
-    
-    @StateObject var vm = ProfileViewModel()
+
     @State private var showMainView : Bool = false
     
     var currentUser = Auth.auth().currentUser
@@ -102,8 +101,17 @@ struct ProfileView: View {
                             .padding()
                     })
                     .fullScreenCover(isPresented: $showMainView) {
-                        MainView()
+                        LogInAneSignUpView()
                     }
+                    
+                    HStack {
+                        Text("My Listing")
+                            .font(.headline)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                    Divider()
                     
                     ScrollView{
                         VStack {

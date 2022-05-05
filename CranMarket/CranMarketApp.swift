@@ -18,7 +18,7 @@ struct CranMarketApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            LogInAneSignUpView()
                 .preferredColorScheme(.light)
         }
     }

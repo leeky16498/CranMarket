@@ -8,7 +8,7 @@
 import SwiftUI
 import AuthenticationServices
 
-struct HomeView: View {
+struct LogInAneSignUpView: View {
     
     @State private var showSignUpSheet : Bool = false
     @State private var showSignInSheet : Bool = false
@@ -65,11 +65,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        LogInAneSignUpView()
     }
 }
 
-extension HomeView {
+extension LogInAneSignUpView {
     
     @ViewBuilder
     private var appleSignInButton : some View {
