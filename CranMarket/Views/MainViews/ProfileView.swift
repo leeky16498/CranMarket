@@ -11,7 +11,8 @@ import FirebaseAuth
 struct ProfileView: View {
 
     @State private var showMainView : Bool = false
-    
+    @StateObject var vm = ProfileViewModel()
+
     var currentUser = Auth.auth().currentUser
     
     var body: some View {
@@ -19,7 +20,7 @@ struct ProfileView: View {
             ScrollView {
                 VStack {
                     if let currentUser = currentUser {
-                        AsyncImage(url: currentUser.photoURL) {image in
+                        AsyncImage(url: currentUser.photoURL) { image in
                             image
                                 .resizable()
                                 .foregroundColor(.gray)
@@ -75,7 +76,7 @@ struct ProfileView: View {
                         .padding(.top, 1)
                         
                         HStack {
-                            Text("User name  :  \(currentUser?.displayName ?? "")")
+                            Text("User name  :  \(vm.userModel?.username ?? "")")
                             Spacer()
                         }
                         .padding(.horizontal)
@@ -115,9 +116,9 @@ struct ProfileView: View {
                     
                     ScrollView{
                         VStack {
-                            PostView()
-                            PostView()
-                            PostView()
+                            ForEach(vm.userFeeds) { item in
+                                PostView(item: item)
+                            }
                         }
                     }
                 }
@@ -132,7 +133,9 @@ struct ProfileView: View {
                 }
             }
             .navigationTitle("My profile")
-            
+            .onAppear {
+                vm.fetchMyListingItems()
+            }
         }//nav
     }
 }

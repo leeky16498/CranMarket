@@ -11,13 +11,14 @@ struct FeedView: View {
     
     @State private var searchText : String = ""
     @State private var showUploadView : Bool = false
+    @StateObject var vm = FeedViewModel()
     
     var body: some View {
         NavigationView{
             ScrollView {
                 LazyVStack {
-                    ForEach(1..<10, id: \.self) {post in
-                        PostView()
+                    ForEach(vm.feeds) { item in
+                        PostView(item: item)
                     }
                 }
             }
@@ -45,6 +46,9 @@ struct FeedView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            vm.fetchItems()
         }
     }
 }

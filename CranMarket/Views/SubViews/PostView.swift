@@ -9,27 +9,37 @@ import SwiftUI
 
 struct PostView: View {
     
+    let item : ItemModel
+    
     var body: some View {
         VStack {
             HStack {
-                Image("dog1")
-                    .resizable()
-                    .frame(width : 130, height : 130)
-                    .scaledToFill()
-                    .cornerRadius(8)
-                    .padding(.trailing, 10)
-                    .shadow(radius: 5)
+                AsyncImage(url: URL(string: item.imageURL)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width : 130, height : 130)
+                        .cornerRadius(8)
+                        .padding(.trailing, 10)
+                        .shadow(radius: 5)
+                }placeholder: {
+                    ProgressView()
+                        .frame(width : 130, height : 130)
+                        .cornerRadius(8)
+                        .padding(.trailing, 10)
+                        .shadow(radius: 5)
+                }
                 
                 VStack(alignment : .leading) {
-                    Text("Cutie dog")
+                    Text(item.title)
                         .font(.headline)
                         .lineLimit(1)
                     
-                    Text("Seller : Kyungyun Lee")
+                    Text(item.contactInfo)
                         .font(.footnote)
                         .foregroundColor(.gray)
                     
-                    Text("$220")
+                    Text("$\(item.price)")
                         .font(.title.bold())
                         .padding(.vertical)
                 }
@@ -42,8 +52,8 @@ struct PostView: View {
     }
 }
 
-struct PostView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostView()
-    }
-}
+//struct PostView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostView()
+//    }
+//}

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 struct UserModel : Identifiable, Codable {
-    
-    var id = UUID()
+    @DocumentID var id : String?
+    let email, username, profileImageUrl : String
 }

@@ -13,6 +13,7 @@ struct UploadView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject var vm = UploadViewModel()
+    @ObservedObject var fm = FeedViewModel()
     
     @State private var title : String = ""
     @State private var description : String = ""
@@ -162,8 +163,7 @@ struct UploadView: View {
                             
                             Button(action: {
                                 vm.storeImageWithUrl(image: selectedImages.first!) { url in
-                                    vm.storeItemInformation(uid: AuthService.instance.makeUid(), title: title, description: description, category: category, price: price, imageUrl: url) { result in
-                                        
+                                    vm.storeItemInformation(title: title, description: description, category: category, contactInfo: contactInfo, price: price, imageUrl: url) { result in
                                         if result {
                                             presentationMode.wrappedValue.dismiss()
                                         }
@@ -185,6 +185,9 @@ struct UploadView: View {
                 }
             }
             .navigationTitle("Post item")
+            .onDisappear {
+                fm.fetchItems()
+            }
         }
     }
 }
