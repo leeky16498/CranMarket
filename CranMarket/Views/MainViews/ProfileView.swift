@@ -24,7 +24,7 @@ struct ProfileView: View {
                             image
                                 .resizable()
                                 .foregroundColor(.gray)
-                                .frame(width : 100, height : 100)
+                                frame(width : 100, height : 100)
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
@@ -133,9 +133,6 @@ struct ProfileView: View {
                 }
             }
             .navigationTitle("My profile")
-            .onAppear {
-                vm.fetchMyListingItems()
-            }
         }//nav
     }
 }

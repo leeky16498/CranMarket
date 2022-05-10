@@ -13,7 +13,6 @@ struct UploadView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject var vm = UploadViewModel()
-    @ObservedObject var fm = FeedViewModel()
     
     @State private var title : String = ""
     @State private var description : String = ""
@@ -185,9 +184,6 @@ struct UploadView: View {
                 }
             }
             .navigationTitle("Post item")
-            .onDisappear {
-                fm.fetchItems()
-            }
         }
     }
 }

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import HalfASheet
 
 struct FeedView: View {
     
     @State private var searchText : String = ""
     @State private var showUploadView : Bool = false
+    @State private var showHalfSheet : Bool = false
     @StateObject var vm = FeedViewModel()
+    
+    @State private var selectedItem : ItemModel?
     
     var body: some View {
         NavigationView{
@@ -20,17 +24,21 @@ struct FeedView: View {
                     ForEach(vm.feeds) { item in
                         PostView(item: item)
                     }
+                    .refreshable {
+                        vm.fetchItems()
+                    }
                 }
             }
+            
             .searchable(text: $searchText)
-            .navigationTitle("Items 🎁")
+            .navigationTitle("Whole Items 🎁")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
                         Menu(content: {
                             Button(action: {
-                                print("Room")
+                                
                             }, label: {
                                 Text("Rooms")
                             })
@@ -46,10 +54,7 @@ struct FeedView: View {
                     }
                 }
             }
-        }
-        .onAppear {
-            vm.fetchItems()
-        }
+        }//nav
     }
 }
 

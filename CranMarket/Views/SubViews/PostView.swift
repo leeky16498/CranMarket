@@ -19,15 +19,13 @@ struct PostView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width : 130, height : 130)
-                        .cornerRadius(8)
+                        .cornerRadius(4)
                         .padding(.trailing, 10)
-                        .shadow(radius: 5)
-                }placeholder: {
+                } placeholder: {
                     ProgressView()
                         .frame(width : 130, height : 130)
-                        .cornerRadius(8)
+                        .cornerRadius(4)
                         .padding(.trailing, 10)
-                        .shadow(radius: 5)
                 }
                 
                 VStack(alignment : .leading) {
