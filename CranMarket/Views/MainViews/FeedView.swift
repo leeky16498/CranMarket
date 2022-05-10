@@ -20,7 +20,7 @@ struct FeedView: View {
     var body: some View {
         NavigationView{
             ScrollView {
-                LazyVStack {
+                VStack {
                     ForEach(vm.feeds) { item in
                         PostView(item: item)
                     }

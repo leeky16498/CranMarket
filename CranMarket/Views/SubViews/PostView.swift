@@ -14,19 +14,7 @@ struct PostView: View {
     var body: some View {
         VStack {
             HStack {
-                AsyncImage(url: URL(string: item.imageURL)) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width : 130, height : 130)
-                        .cornerRadius(4)
-                        .padding(.trailing, 10)
-                } placeholder: {
-                    ProgressView()
-                        .frame(width : 130, height : 130)
-                        .cornerRadius(4)
-                        .padding(.trailing, 10)
-                }
+                ImageView(item: item)
                 
                 VStack(alignment : .leading) {
                     Text(item.title)
