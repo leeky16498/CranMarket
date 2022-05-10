@@ -28,13 +28,7 @@
 		790E12462821BA68008D1D2A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12452821BA68008D1D2A /* ItemModel.swift */; };
 		790E124A2821C115008D1D2A /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E12492821C115008D1D2A /* SignInWithEmailView.swift */; };
 		790E124C2821C203008D1D2A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790E124B2821C203008D1D2A /* PostView.swift */; };
-		795EC233282AA1730033E429 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EC232282AA1730033E429 /* ImageFileManager.swift */; };
-		795EC235282AA49E0033E429 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EC234282AA49E0033E429 /* ImageService.swift */; };
-		795EC237282AA96F0033E429 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EC236282AA96F0033E429 /* ImageViewModel.swift */; };
-		795EC23B282AAFFF0033E429 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EC23A282AAFFF0033E429 /* NetworkService.swift */; };
-		795EC23D282AB1020033E429 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795EC23C282AB1020033E429 /* ImageView.swift */; };
 		798143A62822BEEA007B2448 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798143A52822BEEA007B2448 /* UploadView.swift */; };
-		798F45F42826F7E600A9E5E6 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 798F45F32826F7E600A9E5E6 /* HalfASheet */; };
 		79DC4A402822D0BF005C7212 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A3F2822D0BF005C7212 /* ImagePicker.swift */; };
 		79DC4A45282313E1005C7212 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A44282313E1005C7212 /* UploadViewModel.swift */; };
 		79DC4A472823F92E005C7212 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A462823F92E005C7212 /* ProfileView.swift */; };
@@ -43,6 +37,7 @@
 		79DC4A51282405C9005C7212 /* SavedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A50282405C9005C7212 /* SavedItemView.swift */; };
 		79DC4A5328242C6D005C7212 /* OneImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A5228242C6D005C7212 /* OneImagePicker.swift */; };
 		79DC4A5528243D1B005C7212 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A5428243D1B005C7212 /* ProfileViewModel.swift */; };
+		79F7BFE8282B108800EAF1C8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 79F7BFE7282B108800EAF1C8 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,11 +58,6 @@
 		790E12452821BA68008D1D2A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		790E12492821C115008D1D2A /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
 		790E124B2821C203008D1D2A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		795EC232282AA1730033E429 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
-		795EC234282AA49E0033E429 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
-		795EC236282AA96F0033E429 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
-		795EC23A282AAFFF0033E429 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		795EC23C282AB1020033E429 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		798143A52822BEEA007B2448 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		79DC4A3F2822D0BF005C7212 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		79DC4A44282313E1005C7212 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
@@ -88,10 +78,10 @@
 				790E121E282164AE008D1D2A /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				790E12272821652E008D1D2A /* GoogleSignInSwift in Frameworks */,
 				790E1220282164AE008D1D2A /* FirebaseStorage in Frameworks */,
+				79F7BFE8282B108800EAF1C8 /* Kingfisher in Frameworks */,
 				790E121A282164AE008D1D2A /* FirebaseAuth in Frameworks */,
 				790E121C282164AE008D1D2A /* FirebaseFirestore in Frameworks */,
 				790E12252821652E008D1D2A /* GoogleSignIn in Frameworks */,
-				798F45F42826F7E600A9E5E6 /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +143,6 @@
 		790E1214282163DA008D1D2A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				795EC236282AA96F0033E429 /* ImageViewModel.swift */,
 				79DC4A4E2824044D005C7212 /* SignUpWithEmailViewModel.swift */,
 				79DC4A44282313E1005C7212 /* UploadViewModel.swift */,
 				790E12432821BA4C008D1D2A /* FeedViewModel.swift */,
@@ -176,9 +165,6 @@
 			children = (
 				790E123828217B89008D1D2A /* GoogleSignIn.swift */,
 				790E123A28217CA7008D1D2A /* AuthService.swift */,
-				795EC232282AA1730033E429 /* ImageFileManager.swift */,
-				795EC234282AA49E0033E429 /* ImageService.swift */,
-				795EC23A282AAFFF0033E429 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,7 +184,6 @@
 				790E123D28217F74008D1D2A /* SignUpWithEmailView.swift */,
 				790E12492821C115008D1D2A /* SignInWithEmailView.swift */,
 				790E124B2821C203008D1D2A /* PostView.swift */,
-				795EC23C282AB1020033E429 /* ImageView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -247,7 +232,7 @@
 				790E1221282164AE008D1D2A /* FirebaseStorageSwift-Beta */,
 				790E12242821652E008D1D2A /* GoogleSignIn */,
 				790E12262821652E008D1D2A /* GoogleSignInSwift */,
-				798F45F32826F7E600A9E5E6 /* HalfASheet */,
+				79F7BFE7282B108800EAF1C8 /* Kingfisher */,
 			);
 			productName = CranMarket;
 			productReference = 790E120228216387008D1D2A /* CranMarket.app */;
@@ -280,7 +265,8 @@
 			packageReferences = (
 				790E1218282164AE008D1D2A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				790E12232821652E008D1D2A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				798F45F22826F7E600A9E5E6 /* XCRemoteSwiftPackageReference "HalfASheet" */,
+				79FADB78282B0CBF00403539 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				79F7BFE6282B108800EAF1C8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 790E120328216387008D1D2A /* Products */;
 			projectDirPath = "";
@@ -309,18 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				795EC23D282AB1020033E429 /* ImageView.swift in Sources */,
 				79DC4A402822D0BF005C7212 /* ImagePicker.swift in Sources */,
-				795EC233282AA1730033E429 /* ImageFileManager.swift in Sources */,
 				790E124228218683008D1D2A /* FeedView.swift in Sources */,
 				790E12462821BA68008D1D2A /* ItemModel.swift in Sources */,
 				79DC4A4F2824044D005C7212 /* SignUpWithEmailViewModel.swift in Sources */,
-				795EC237282AA96F0033E429 /* ImageViewModel.swift in Sources */,
 				790E120828216387008D1D2A /* LogInAneSignUpView.swift in Sources */,
 				798143A62822BEEA007B2448 /* UploadView.swift in Sources */,
 				79DC4A5528243D1B005C7212 /* ProfileViewModel.swift in Sources */,
 				79DC4A45282313E1005C7212 /* UploadViewModel.swift in Sources */,
-				795EC23B282AAFFF0033E429 /* NetworkService.swift in Sources */,
 				790E124A2821C115008D1D2A /* SignInWithEmailView.swift in Sources */,
 				79DC4A472823F92E005C7212 /* ProfileView.swift in Sources */,
 				790E123E28217F74008D1D2A /* SignUpWithEmailView.swift in Sources */,
@@ -331,7 +313,6 @@
 				790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */,
 				790E123B28217CA7008D1D2A /* AuthService.swift in Sources */,
 				79DC4A4D28240272005C7212 /* UserModel.swift in Sources */,
-				795EC235282AA49E0033E429 /* ImageService.swift in Sources */,
 				79DC4A5328242C6D005C7212 /* OneImagePicker.swift in Sources */,
 				790E124C2821C203008D1D2A /* PostView.swift in Sources */,
 			);
@@ -556,11 +537,19 @@
 				kind = branch;
 			};
 		};
-		798F45F22826F7E600A9E5E6 /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+		79F7BFE6282B108800EAF1C8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/franklynw/HalfASheet";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				branch = develop;
+				branch = master;
+				kind = branch;
+			};
+		};
+		79FADB78282B0CBF00403539 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
 				kind = branch;
 			};
 		};
@@ -602,10 +591,10 @@
 			package = 790E12232821652E008D1D2A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
 		};
-		798F45F32826F7E600A9E5E6 /* HalfASheet */ = {
+		79F7BFE7282B108800EAF1C8 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 798F45F22826F7E600A9E5E6 /* XCRemoteSwiftPackageReference "HalfASheet" */;
-			productName = HalfASheet;
+			package = 79FADB78282B0CBF00403539 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

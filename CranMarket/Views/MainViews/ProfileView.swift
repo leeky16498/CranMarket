@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import Kingfisher
 
 struct ProfileView: View {
 
@@ -20,27 +21,17 @@ struct ProfileView: View {
             ScrollView {
                 VStack {
                     if let currentUser = currentUser {
-                        AsyncImage(url: currentUser.photoURL) { image in
-                            image
-                                .resizable()
-                                .foregroundColor(.gray)
-                                frame(width : 100, height : 100)
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle()
-                                        .stroke(.gray, lineWidth: 1)
-                                )
-                                .padding()
-                        } placeholder: {
-                            ProgressView()
-                                .frame(width : 100, height : 100)
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle()
-                                        .stroke(.gray, lineWidth: 1)
-                                )
-                                .padding()
-                        }
+                        KFImage.url(currentUser.photoURL)
+                            .resizable()
+                            .scaledToFill()
+                            .foregroundColor(.gray.opacity(0.3))
+                            .frame(width : 100, height : 100)
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle()
+                                    .stroke(.gray, lineWidth: 2)
+                            )
+                            .padding()
                             
                     } else {
                         Button(action: {
@@ -115,11 +106,11 @@ struct ProfileView: View {
                     Divider()
                     
                     ScrollView{
-                        VStack {
-                            ForEach(vm.userFeeds) { item in
-                                PostView(item: item)
-                            }
-                        }
+//                        VStack {
+//                            ForEach(vm.userFeeds) { item in
+//                                PostView(item: item)
+//                            }
+//                        }
                     }
                 }
             }

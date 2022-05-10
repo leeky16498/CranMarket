@@ -100,12 +100,12 @@
       }
     },
     {
-      "identity" : "halfasheet",
+      "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/franklynw/HalfASheet",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
-        "branch" : "develop",
-        "revision" : "5d1ade1157f87c4f922f4aa1af318f53fa1a3764"
+        "branch" : "master",
+        "revision" : "59eb199fdb8dd47733624e8b0277822d0232579e"
       }
     },
     {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PostView: View {
     
@@ -14,7 +15,11 @@ struct PostView: View {
     var body: some View {
         VStack {
             HStack {
-                ImageView(item: item)
+                KFImage(URL(string: item.imageURL))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width : 110, height : 110)
+                    .cornerRadius(8)
                 
                 VStack(alignment : .leading) {
                     Text(item.title)

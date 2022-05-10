@@ -161,8 +161,8 @@ struct UploadView: View {
                             .padding()
                             
                             Button(action: {
-                                vm.storeImageWithUrl(image: selectedImages.first!) { url in
-                                    vm.storeItemInformation(title: title, description: description, category: category, contactInfo: contactInfo, price: price, imageUrl: url) { result in
+                                vm.storeImageWithUrl(images: selectedImages) { urls in
+                                    vm.storeItemInformation(title: title, description: description, category: category, contactInfo: contactInfo, price: price, imageUrls: urls) { result in
                                         if result {
                                             presentationMode.wrappedValue.dismiss()
                                         }

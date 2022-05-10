@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import HalfASheet
 
 struct FeedView: View {
     
@@ -23,9 +22,6 @@ struct FeedView: View {
                 VStack {
                     ForEach(vm.feeds) { item in
                         PostView(item: item)
-                    }
-                    .refreshable {
-                        vm.fetchItems()
                     }
                 }
             }
@@ -53,6 +49,9 @@ struct FeedView: View {
                         })
                     }
                 }
+            }
+            .onAppear {
+                vm.fetchItems()
             }
         }//nav
     }

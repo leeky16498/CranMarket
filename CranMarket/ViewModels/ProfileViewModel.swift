@@ -13,11 +13,9 @@ import FirebaseFirestoreSwift
 class ProfileViewModel : ObservableObject {
     
     @Published var userModel : UserModel?
-    @Published var userFeeds : [ItemModel] = []
     
     init() {
         fetchCurrentUserInformation()
-        fetchMyListingItems()
     }
     
     
@@ -48,37 +46,37 @@ class ProfileViewModel : ObservableObject {
             }
     }
     
-    func fetchMyListingItems() {
-        
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        
-        Firestore.firestore()
-            .collection("UserItems")
-            .document(uid)
-            .collection(uid)
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    print("error to get data")
-                    return
-                }
-                
-                if let snapshot = snapshot {
-                    
-                    DispatchQueue.main.async {
-                        self.userFeeds = snapshot.documents.map({ d in
-                            return ItemModel(id: d.documentID,
-                                             category: d["category"] as? String ?? "",
-                                             contactInfo: d["contactInfo"] as? String ?? "",
-                                             description: d["description"] as? String ?? "",
-                                             imageURL: d["imageURL"] as? String ?? "",
-                                             price: d["price"] as? String ?? "",
-                                             timestamp: d["timestamp"] as? String ?? "",
-                                             title: d["title"] as? String ?? "")
-                        })
-                    }
-                }
-            }
-    }
+//    func fetchMyListingItems() {
+//        
+//        guard let uid = Auth.auth().currentUser?.uid else {return}
+//        
+//        Firestore.firestore()
+//            .collection("UserItems")
+//            .document(uid)
+//            .collection(uid)
+//            .getDocuments { snapshot, error in
+//                if let error = error {
+//                    print("error to get data")
+//                    return
+//                }
+//                
+//                if let snapshot = snapshot {
+//                    
+//                    DispatchQueue.main.async {
+//                        self.userFeeds = snapshot.documents.map({ d in
+//                            return ItemModel(id: d.documentID,
+//                                             category: d["category"] as? String ?? "",
+//                                             contactInfo: d["contactInfo"] as? String ?? "",
+//                                             description: d["description"] as? String ?? "",
+//                                             imageURL: d["imageURL"] as? String ?? "",
+//                                             price: d["price"] as? String ?? "",
+//                                             timestamp: d["timestamp"] as? String ?? "",
+//                                             title: d["title"] as? String ?? "")
+//                        })
+//                    }
+//                }
+//            }
+//    }
     
     
 }

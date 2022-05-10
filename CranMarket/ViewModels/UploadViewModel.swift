@@ -15,37 +15,43 @@ class UploadViewModel : ObservableObject {
     
     @Published var loading : Bool = false
     
-    func storeImageWithUrl(image : UIImage, completion : @escaping (_ url : URL) -> ()) {
+    func storeImageWithUrl(images : [UIImage], completion : @escaping (_ urls : [String]) -> ()) {
         
         self.loading = true
         
-        let ref = Storage.storage().reference(withPath: UUID().uuidString)
-
-        guard let imageData = image.jpegData(compressionQuality: 0.5) else {return}
+        var urls : [String] = []
         
-        ref.putData(imageData, metadata: nil) { metaData, error in
+        for image in images {
             
-            if let error = error {
-                print("failed to push image cause of error")
-                return
-            }
+            let ref = Storage.storage().reference(withPath: UUID().uuidString)
             
-            ref.downloadURL { url, error in
+            guard let imageData = image.jpegData(compressionQuality: 0.5) else {return}
+            
+            ref.putData(imageData, metadata: nil) { metaData, error in
                 if let error = error {
-                    print("error to make url")
+                    print("failed to push image cause of error")
                     return
                 }
-                guard let url = url else {return}
-                completion(url)
+                
+                ref.downloadURL { url, error in
+                    if let error = error {
+                        print("error to make url")
+                        return
+                    }
+                    guard let url = url else {return}
+                    urls.append(url.absoluteString)
+                    print(urls)
+                }
             }
         }
+        completion(urls)
     }
     
-    func storeItemInformation(title : String, description : String, category : String, contactInfo : String, price : String, imageUrl : URL, timeStamp : Date = Date(), completion : @escaping (_ result : Bool) -> ()) {
+    func storeItemInformation(title : String, description : String, category : String, contactInfo : String, price : String, imageUrls : [String], timeStamp : Date = Date(), completion : @escaping (_ result : Bool) -> ()) {
         
         let uid = AuthService.instance.makeUid()
         
-        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrl.absoluteString, "timestamp" : timeStamp, "contactInfo" : contactInfo] as? [String : Any] else { return }
+        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo] as? [String : Any] else { return }
         
         Firestore.firestore()
             .collection("WholeItems")
