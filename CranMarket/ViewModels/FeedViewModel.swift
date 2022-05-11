@@ -36,10 +36,11 @@ class FeedViewModel : ObservableObject {
                                              category: d["category"] as? String ?? "",
                                              contactInfo: d["contactInfo"] as? String ?? "",
                                              description: d["description"] as? String ?? "",
-                                             imageURL: d["imageURL"] as? String ?? "",
                                              price: d["price"] as? String ?? "",
                                              timestamp: d["timestamp"] as? String ?? "",
-                                             title: d["title"] as? String ?? "")
+                                             title: d["title"] as? String ?? "",
+                                             saved : d["saved"] as? Bool ?? false,
+                                             imageURL: d["imageURL"] as? [String] ?? [])
                         })
                     }
                 }

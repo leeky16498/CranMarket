@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct SavedItemView: View {
+    
+    @State private var searchText : String = ""
+    @State private var showUploadView : Bool = false
+    @State private var showHalfSheet : Bool = false
+    @StateObject var vm = FeedViewModel()
+    
+    @State private var selectedItem : ItemModel?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SavedItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavedItemView()
+        NavigationView{
+            ScrollView {
+                VStack {
+                    ForEach(vm.feeds) { item in
+                        PostView(item: item)
+                    }
+                }
+            }
+            .searchable(text: $searchText)
+            .navigationTitle("Saved Items ❤️")
+            .navigationBarTitleDisplayMode(.inline)
+            }
+        
+            .onAppear {
+                vm.fetchItems()
+            }
     }
 }

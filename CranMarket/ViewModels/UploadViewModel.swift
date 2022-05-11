@@ -19,6 +19,7 @@ class UploadViewModel : ObservableObject {
         
         self.loading = true
         
+        var count = 0
         var urls : [String] = []
         
         for image in images {
@@ -39,19 +40,22 @@ class UploadViewModel : ObservableObject {
                         return
                     }
                     guard let url = url else {return}
+                    count += 1
                     urls.append(url.absoluteString)
-                    print(urls)
+                    
+                    if count == images.count {
+                        completion(urls)
+                    }
                 }
             }
         }
-        completion(urls)
     }
     
-    func storeItemInformation(title : String, description : String, category : String, contactInfo : String, price : String, imageUrls : [String], timeStamp : Date = Date(), completion : @escaping (_ result : Bool) -> ()) {
+    func storeItemInformation(title : String, description : String, category : String, contactInfo : String, price : String, imageUrls : [String], timeStamp : Date = Date(), saved : Bool = false, completion : @escaping (_ result : Bool) -> ()) {
         
         let uid = AuthService.instance.makeUid()
         
-        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo] as? [String : Any] else { return }
+        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo, "saved" : saved] as? [String : Any] else { return }
         
         Firestore.firestore()
             .collection("WholeItems")
@@ -63,23 +67,15 @@ class UploadViewModel : ObservableObject {
                     return
                 }
                 print("Success to save whole data")
-        
-                Firestore.firestore()
-                    .collection("UserItems")
-                    .document(uid)
-                    .collection(uid)
-                    .document(UUID().uuidString)
-                    .setData(userData) { error in
-                        if let error = error {
-                            print("Error to save userData")
-                            completion(false)
-                            return
-                        }
-                        
-                    self.loading = false
-                    print("Success to save user data")
-                    completion(true)
-                }
+                self.loading = false
+                completion(true)
+            }
         }
+    }
+    
+    func updateSavedInformation(item : ItemModel) {
+        Firestore.firestore()
+            .collection("WholeItems")
+            .document(UUID().uuidString)
     }
 }

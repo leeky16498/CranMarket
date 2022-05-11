@@ -17,7 +17,7 @@ struct MainView: View {
                 })
                 .tag(0)
             
-            FeedView()
+            SavedItemView()
                 .tabItem({
                     Image(systemName: "heart.fill")
                     Text("Saved")
