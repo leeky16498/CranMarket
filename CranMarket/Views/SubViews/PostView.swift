@@ -11,6 +11,7 @@ import Kingfisher
 struct PostView: View {
     
     let item : ItemModel
+    @StateObject var vm = FeedViewModel()
     @State private var isSaved : Bool = false
     
     var body: some View {
@@ -39,19 +40,17 @@ struct PostView: View {
                         .padding(.vertical)
                     
                     HStack {
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(systemName: isSaved ? "heart.fill" : "heart")
-                                .foregroundColor(isSaved ? .red : .black)
-                        })
-                        .onTapGesture {
-                            self.isSaved.toggle()
-                        }
-                        
+                        Image(systemName: isSaved ? "heart.fill" : "heart")
+                            .foregroundColor(isSaved ? .red : .black)
+                            .onTapGesture {
+                                self.isSaved.toggle()
+                            }
+                            .padding(.horizontal)
                             
                         Button(action: {
-                            
+                            vm.deleteItems(item: item) { result in
+                                vm.fetchItems()
+                            }
                         }, label: {
                             Image(systemName: "trash")
                                 .foregroundColor(.blue)

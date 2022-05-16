@@ -19,6 +19,16 @@ class FeedViewModel : ObservableObject {
         print(feeds)
     }
     
+    func deleteItems(item : ItemModel, completion : @escaping (_ result : Bool) -> ()) {
+        Firestore.firestore()
+            .collection("Wholeitems")
+            .document(item.id!)
+            .delete { error in
+                completion(false)
+            }
+        completion(true)
+    }
+    
     func fetchItems() {
         
         Firestore.firestore()
