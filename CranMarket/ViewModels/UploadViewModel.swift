@@ -69,7 +69,6 @@ class UploadViewModel : ObservableObject {
                 print("Success to save whole data")
                 self.loading = false
                 completion(true)
-            }
         }
     }
     

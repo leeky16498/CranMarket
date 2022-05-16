@@ -21,7 +21,11 @@ struct FeedView: View {
             ScrollView {
                 VStack {
                     ForEach(vm.feeds) { item in
-                        PostView(item: item)
+                        NavigationLink(destination: {
+                            DescriptionView(item: item)
+                        }, label: {
+                            PostView(item: item)
+                        })
                     }
                 }
             }

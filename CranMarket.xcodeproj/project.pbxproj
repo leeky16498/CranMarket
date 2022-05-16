@@ -38,6 +38,7 @@
 		79DC4A5328242C6D005C7212 /* OneImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A5228242C6D005C7212 /* OneImagePicker.swift */; };
 		79DC4A5528243D1B005C7212 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DC4A5428243D1B005C7212 /* ProfileViewModel.swift */; };
 		79F7BFE8282B108800EAF1C8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 79F7BFE7282B108800EAF1C8 /* Kingfisher */; };
+		79FD7B73283289D30006C068 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FD7B72283289D30006C068 /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		79DC4A50282405C9005C7212 /* SavedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemView.swift; sourceTree = "<group>"; };
 		79DC4A5228242C6D005C7212 /* OneImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneImagePicker.swift; sourceTree = "<group>"; };
 		79DC4A5428243D1B005C7212 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		79FD7B72283289D30006C068 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				790E123D28217F74008D1D2A /* SignUpWithEmailView.swift */,
 				790E12492821C115008D1D2A /* SignInWithEmailView.swift */,
 				790E124B2821C203008D1D2A /* PostView.swift */,
+				79FD7B72283289D30006C068 /* DescriptionView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				790E120628216387008D1D2A /* CranMarketApp.swift in Sources */,
 				790E12402821860E008D1D2A /* MainView.swift in Sources */,
 				79DC4A51282405C9005C7212 /* SavedItemView.swift in Sources */,
+				79FD7B73283289D30006C068 /* DescriptionView.swift in Sources */,
 				790E12442821BA4C008D1D2A /* FeedViewModel.swift in Sources */,
 				790E123B28217CA7008D1D2A /* AuthService.swift in Sources */,
 				79DC4A4D28240272005C7212 /* UserModel.swift in Sources */,
