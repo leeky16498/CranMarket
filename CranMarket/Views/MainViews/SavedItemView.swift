@@ -25,13 +25,10 @@ struct SavedItemView: View {
                     }
                 }
             }
-            .searchable(text: $searchText)
             .navigationTitle("Saved Items ❤️")
-            .navigationBarTitleDisplayMode(.inline)
-            }
-        
             .onAppear {
                 vm.fetchItems()
             }
+        }
     }
 }

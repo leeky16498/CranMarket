@@ -19,11 +19,12 @@ struct DescriptionView: View {
                     ForEach(item.imageURL, id : \.self) {
                         KFImage(URL(string: $0))
                             .resizable()
+                            .scaledToFill()
                     }
                 }
                 .frame(maxWidth : .infinity)
                 .frame(height : 300)
-                .scaledToFill()
+
                 .tabViewStyle(.page)
                 
                 HStack {
@@ -34,17 +35,27 @@ struct DescriptionView: View {
                 .padding()
                 
                 HStack {
-                    Text(item.category)
+                    Text("ContactInfo : " + item.contactInfo)
+                        .font(.body)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 4)
+                
+                HStack {
+                    Text("Category : " + item.category)
                         .font(.footnote)
                         .foregroundColor(.gray)
                     Spacer()
                 }
+                .padding(.horizontal)
                 
-                VStack(alignment : .leading) {
+                HStack {
                     Text(item.description)
                         .font(.body)
+                    Spacer()
                 }
-                .frame(maxWidth : .infinity)
+                .padding()
             }
         }
         .navigationTitle("Item details")

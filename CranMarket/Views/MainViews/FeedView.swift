@@ -31,7 +31,7 @@ struct FeedView: View {
             }
             
             .searchable(text: $searchText)
-            .navigationTitle("Whole Items 🎁")
+            .navigationTitle("Whole Items")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

@@ -51,14 +51,14 @@ class UploadViewModel : ObservableObject {
         }
     }
     
-    func storeItemInformation(title : String, description : String, category : String, contactInfo : String, price : String, imageUrls : [String], timeStamp : Date = Date(), saved : Bool = false, completion : @escaping (_ result : Bool) -> ()) {
+    func storeItemInformation(title : String, description : String, category : String, contactInfo : String, price : String, imageUrls : [String], timeStamp : Date = Date(), saved : Bool = false, seller : String, completion : @escaping (_ result : Bool) -> ()) {
         
         let uid = AuthService.instance.makeUid()
         
-        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo, "saved" : saved] as? [String : Any] else { return }
+        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo, "saved" : saved, "seller" : seller] as? [String : Any] else { return }
         
         Firestore.firestore()
-            .collection("WholeItems")
+            .collection("Wholeitems")
             .document(UUID().uuidString)
             .setData(userData) { error in
                 if let error = error {
@@ -70,11 +70,5 @@ class UploadViewModel : ObservableObject {
                 self.loading = false
                 completion(true)
         }
-    }
-    
-    func updateSavedInformation(item : ItemModel) {
-        Firestore.firestore()
-            .collection("WholeItems")
-            .document(UUID().uuidString)
     }
 }

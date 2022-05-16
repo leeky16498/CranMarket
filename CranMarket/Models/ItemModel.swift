@@ -12,5 +12,6 @@ struct ItemModel : Identifiable, Codable {
     @DocumentID var id : String?
     let category, contactInfo, description, price, timestamp, title : String
     let saved : Bool
+    let seller : String
     let imageURL : [String]
 }

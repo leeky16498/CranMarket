@@ -16,13 +16,13 @@ class FeedViewModel : ObservableObject {
     
     init() {
         fetchItems()
+        print(feeds)
     }
     
     func fetchItems() {
         
         Firestore.firestore()
-            .collection("WholeItems")
-            .order(by: "timestamp", descending: true)
+            .collection("Wholeitems")
             .getDocuments { snapshot, error in
                 if let error = error {
                     print("error to get data")
@@ -40,7 +40,9 @@ class FeedViewModel : ObservableObject {
                                              timestamp: d["timestamp"] as? String ?? "",
                                              title: d["title"] as? String ?? "",
                                              saved : d["saved"] as? Bool ?? false,
-                                             imageURL: d["imageURL"] as? [String] ?? [])
+                                             seller: d["seller"] as? String ?? "",
+                                             imageURL: d["imageURL"] as? [String] ?? []
+                            )
                         })
                     }
                 }

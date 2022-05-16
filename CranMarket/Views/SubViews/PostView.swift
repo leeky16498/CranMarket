@@ -19,13 +19,14 @@ struct PostView: View {
                 KFImage(URL(string: item.imageURL.first ?? ""))
                     .resizable()
                     .scaledToFill()
-                    .frame(width : 120, height : 120)
+                    .frame(width : 110, height : 110)
                     .cornerRadius(4)
                     .padding(.horizontal, 4)
                 
                 VStack(alignment : .leading, spacing: 2) {
                     Text(item.title)
                         .font(.body)
+                        .foregroundColor(.black)
                         .lineLimit(1)
                     
                     Text(item.contactInfo)
@@ -34,23 +35,37 @@ struct PostView: View {
                     
                     Text("£\(item.price)")
                         .font(.headline)
+                        .foregroundColor(.black)
                         .padding(.vertical)
                     
                     HStack {
-                        Image(systemName: isSaved ? "heart.fill" : "heart")
-                            .foregroundColor(isSaved ? .red : .blue)
-                            .onTapGesture {
-                                self.isSaved.toggle()
-                            }
+                        Button(action: {
                             
+                        }, label: {
+                            Image(systemName: isSaved ? "heart.fill" : "heart")
+                                .foregroundColor(isSaved ? .red : .black)
+                        })
+                        .onTapGesture {
+                            self.isSaved.toggle()
+                        }
+                        
+                            
+                        Button(action: {
+                            
+                        }, label: {
+                            Image(systemName: "trash")
+                                .foregroundColor(.blue)
+                        })
+                        
                         Spacer()
                     }
                 }
                 Spacer()
-            }
+            }//hst
+            .padding(4)
             
             Divider()
-        }
+        }//vst
     }
 }
 

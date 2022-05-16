@@ -162,7 +162,7 @@ struct UploadView: View {
                             
                             Button(action: {
                                 vm.storeImageWithUrl(images: selectedImages) { urls in
-                                    vm.storeItemInformation(title: title, description: description, category: category, contactInfo: contactInfo, price: price, imageUrls: urls) { result in
+                                    vm.storeItemInformation(title: title, description: description, category: category, contactInfo: contactInfo, price: price, imageUrls: urls, seller: AuthService.instance.makeUid()) { result in
                                         if result {
                                             presentationMode.wrappedValue.dismiss()
                                         }
