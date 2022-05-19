@@ -30,7 +30,7 @@ struct SavedItemView: View {
                     }
                 }
             }
-            .navigationTitle("Saved Items ❤️")
+            .navigationTitle("Saved Items")
             .onAppear {
                 vm.fetchItems()
             }
