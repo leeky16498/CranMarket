@@ -36,7 +36,7 @@ struct MyListingView: View {
                     Text("£\(item.price)")
                         .font(.headline)
                         .foregroundColor(.black)
-                        .padding(.vertical)
+                        .padding(.vertical, 12)
                     
                     HStack {
                         Button(action: {
@@ -55,5 +55,6 @@ struct MyListingView: View {
             
             Divider()
         }//vst
+        .padding(.horizontal)
     }
 }
