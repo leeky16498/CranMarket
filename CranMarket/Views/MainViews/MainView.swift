@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @StateObject var fm = FeedViewModel()
+    
     var body: some View {
         TabView {
             FeedView()
+                .environmentObject(fm)
                 .tabItem({
                     Image(systemName: "book")
                     Text("Items")
@@ -25,6 +29,7 @@ struct MainView: View {
                 .tag(1)
             
             ProfileView()
+                .environmentObject(fm)
                 .tabItem({
                     Image(systemName: "person.fill")
                     Text("My Account")

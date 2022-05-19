@@ -12,7 +12,6 @@ struct PostView: View {
     
     let item : ItemModel
     @StateObject var vm = FeedViewModel()
-    @State private var isSaved : Bool = false
     
     var body: some View {
         VStack {

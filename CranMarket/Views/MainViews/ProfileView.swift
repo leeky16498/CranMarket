@@ -12,6 +12,7 @@ import Kingfisher
 struct ProfileView: View {
 
     @State private var showMainView : Bool = false
+    @EnvironmentObject var fm : FeedViewModel
     @StateObject var vm = ProfileViewModel()
 
     var currentUser = Auth.auth().currentUser
@@ -106,11 +107,15 @@ struct ProfileView: View {
                     Divider()
                     
                     ScrollView{
-//                        VStack {
-//                            ForEach(vm.userFeeds) { item in
-//                                PostView(item: item)
-//                            }
-//                        }
+                        VStack {
+                            ForEach(fm.feeds.filter({$0.seller == AuthService.instance.makeUid()})) {item in
+                                NavigationLink(destination: {
+                                    DescriptionView(item: item)
+                                }, label: {
+                                    MyListingView(item: item)
+                                })
+                            }
+                        }
                     }
                 }
             }

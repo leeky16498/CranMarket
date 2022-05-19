@@ -9,11 +9,10 @@ import SwiftUI
 
 struct FeedView: View {
     
+    @EnvironmentObject var vm : FeedViewModel
     @State private var searchText : String = ""
     @State private var showUploadView : Bool = false
     @State private var showHalfSheet : Bool = false
-    @StateObject var vm = FeedViewModel()
-    
     @State private var selectedItem : ItemModel?
     
     var body: some View {

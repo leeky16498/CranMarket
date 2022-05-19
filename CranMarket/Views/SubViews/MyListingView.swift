@@ -1,16 +1,17 @@
 //
-//  SavedPostView.swift
+//  MyListingView.swift
 //  CranMarket
 //
 //  Created by Kyungyun Lee on 19/05/2022.
 //
+
 import SwiftUI
 import Kingfisher
 
-struct SavedPostView: View {
+struct MyListingView: View {
     
     let item : ItemModel
-    @EnvironmentObject var vm : FeedViewModel
+    @StateObject var vm = FeedViewModel()
     
     var body: some View {
         VStack {
@@ -36,6 +37,17 @@ struct SavedPostView: View {
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding(.vertical)
+                    
+                    HStack {
+                        Button(action: {
+                            vm.deleteItems(item: item)
+                        }, label: {
+                            Image(systemName: "trash")
+                                .foregroundColor(.blue)
+                        })
+                        
+                        Spacer()
+                    }
                 }
                 Spacer()
             }//hst
