@@ -55,7 +55,7 @@ class UploadViewModel : ObservableObject {
         
         let uid = AuthService.instance.makeUid()
         
-        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo, "saved" : saved, "seller" : seller] as? [String : Any] else { return }
+        guard let userData = ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo, "saved" : saved, "seller" : uid] as? [String : Any] else { return }
         
         Firestore.firestore()
             .collection("Wholeitems")

@@ -1,17 +1,16 @@
 //
-//  PostView.swift
+//  SavedPostView.swift
 //  CranMarket
 //
-//  Created by Kyungyun Lee on 03/05/2022.
+//  Created by Kyungyun Lee on 19/05/2022.
 //
-
 import SwiftUI
 import Kingfisher
 
-struct PostView: View {
+struct SavedPostView: View {
     
     let item : ItemModel
-    @StateObject var vm = FeedViewModel()
+    @EnvironmentObject var vm : FeedViewModel
     @State private var isSaved : Bool = false
     
     var body: some View {
@@ -38,25 +37,6 @@ struct PostView: View {
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding(.vertical)
-                    
-                    HStack {
-                        Image(systemName: item.saved ? "heart.fill" : "heart")
-                            .foregroundColor(item.saved ? .red : .black)
-                            .onTapGesture {
-                                vm.updateItem(item: item)
-                                vm.fetchItems()
-                            }
-                            .padding(.horizontal)
-                            
-                        Button(action: {
-                            vm.deleteItems(item: item)
-                        }, label: {
-                            Image(systemName: "trash")
-                                .foregroundColor(.blue)
-                        })
-                        
-                        Spacer()
-                    }
                 }
                 Spacer()
             }//hst
@@ -66,9 +46,3 @@ struct PostView: View {
         }//vst
     }
 }
-
-//struct PostView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PostView()
-//    }
-//}

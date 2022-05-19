@@ -12,25 +12,34 @@ import FirebaseAuth
 
 class FeedViewModel : ObservableObject {
     
-    @Published var feeds : [ItemModel] = []
+    @Published var feeds : [ItemModel] = [] {
+        didSet {
+            self.fetchItems()
+        }
+    }
     
     init() {
         fetchItems()
         print(feeds)
     }
     
-    func deleteItems(item : ItemModel, completion : @escaping (_ result : Bool) -> ()) {
+    func deleteItems(item : ItemModel) {
         Firestore.firestore()
             .collection("Wholeitems")
             .document(item.id!)
-            .delete { error in
-                completion(false)
-            }
-        completion(true)
+            .delete()
+    }
+    
+    func updateItem(item : ItemModel) {
+        let a = Firestore.firestore()
+            .collection("Wholeitems")
+            .document(item.id!)
+            .updateData([
+                "saved" : item.saved ? false : true
+            ])
     }
     
     func fetchItems() {
-        
         Firestore.firestore()
             .collection("Wholeitems")
             .getDocuments { snapshot, error in

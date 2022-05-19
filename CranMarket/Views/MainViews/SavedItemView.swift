@@ -20,8 +20,9 @@ struct SavedItemView: View {
         NavigationView{
             ScrollView {
                 VStack {
-                    ForEach(vm.feeds) { item in
-                        PostView(item: item)
+                    ForEach(vm.feeds.filter({$0.saved == true})) { item in
+                        SavedPostView(item: item)
+                            .environmentObject(vm)
                     }
                 }
             }
