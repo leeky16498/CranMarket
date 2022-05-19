@@ -107,15 +107,26 @@ struct UploadView: View {
                                 Spacer()
                                     Menu(content: {
                                         Button(action: {
-                                            category = "Room"
+                                            category = "Rooms and Funitures"
                                         }, label: {
-                                            Text("Room")
+                                            Text("Rooms and Funitures")
                                         })
                                         
                                         Button(action: {
-                                            category = "Electronics"
+                                            category = "Electronics and Machines"
                                         }, label: {
-                                            Text("Electronics")
+                                            Text("Electronics and Machines")
+                                        })
+                                        Button(action: {
+                                            category = "Foods and Drinks"
+                                        }, label: {
+                                            Text("Foods and Drinks")
+                                        })
+                                        
+                                        Button(action: {
+                                            category = "Clothes and Accesories"
+                                        }, label: {
+                                            Text("Clothes and Accesories")
                                         })
                                     }, label: {
                                         if category.isEmpty {

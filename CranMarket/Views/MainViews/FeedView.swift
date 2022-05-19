@@ -14,12 +14,13 @@ struct FeedView: View {
     @State private var showUploadView : Bool = false
     @State private var showHalfSheet : Bool = false
     @State private var selectedItem : ItemModel?
+    @State private var selectedFilter : String = ""
     
     var body: some View {
         NavigationView{
             ScrollView {
                 VStack {
-                    ForEach(vm.feeds) { item in
+                    ForEach(selectedFilter.isEmpty ? vm.feeds : vm.feeds.filter({$0.category == selectedFilter})) { item in
                         NavigationLink(destination: {
                             DescriptionView(item: item)
                         }, label: {
@@ -28,7 +29,6 @@ struct FeedView: View {
                     }
                 }
             }
-            
             .searchable(text: $searchText)
             .navigationTitle("Whole Items")
             .navigationBarTitleDisplayMode(.inline)
@@ -37,9 +37,29 @@ struct FeedView: View {
                     HStack {
                         Menu(content: {
                             Button(action: {
-                                
+                                selectedFilter = "Rooms and Funitures"
                             }, label: {
-                                Text("Rooms")
+                                Text("Rooms and Funitures")
+                            })
+                            Button(action: {
+                                selectedFilter = "Electronics and Machines"
+                            }, label: {
+                                Text("Electronics and Machines")
+                            })
+                            Button(action: {
+                                selectedFilter = "Foods and Drinks"
+                            }, label: {
+                                Text("Foods and Drinks")
+                            })
+                            Button(action: {
+                                selectedFilter = "Clothes and Accesories"
+                            }, label: {
+                                Text("Clothes and Accesories")
+                            })
+                            Button(action: {
+                                selectedFilter = ""
+                            }, label: {
+                                Text("All Items")
                             })
                         }, label: {
                             Image(systemName: "slider.vertical.3")

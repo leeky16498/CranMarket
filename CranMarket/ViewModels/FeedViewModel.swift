@@ -30,15 +30,6 @@ class FeedViewModel : ObservableObject {
             .delete()
     }
     
-    func updateItem(item : ItemModel) {
-        let a = Firestore.firestore()
-            .collection("Wholeitems")
-            .document(item.id!)
-            .updateData([
-                "saved" : item.saved ? false : true
-            ])
-    }
-    
     func fetchItems() {
         Firestore.firestore()
             .collection("Wholeitems")

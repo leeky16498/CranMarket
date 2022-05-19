@@ -19,7 +19,7 @@ struct PostView: View {
                 KFImage(URL(string: item.imageURL.first ?? ""))
                     .resizable()
                     .scaledToFill()
-                    .frame(width : 110, height : 110)
+                    .frame(width : 100, height : 100)
                     .cornerRadius(4)
                     .padding(.horizontal, 4)
                 
@@ -37,25 +37,6 @@ struct PostView: View {
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding(.vertical)
-                    
-                    HStack {
-                        Image(systemName: item.saved ? "heart.fill" : "heart")
-                            .foregroundColor(item.saved ? .red : .black)
-                            .onTapGesture {
-                                vm.updateItem(item: item)
-                                vm.fetchItems()
-                            }
-                            .padding(.horizontal)
-                            
-                        Button(action: {
-                            vm.deleteItems(item: item)
-                        }, label: {
-                            Image(systemName: "trash")
-                                .foregroundColor(.blue)
-                        })
-                        
-                        Spacer()
-                    }
                 }
                 Spacer()
             }//hst
@@ -63,6 +44,7 @@ struct PostView: View {
             
             Divider()
         }//vst
+        .padding(.horizontal)
     }
 }
 
