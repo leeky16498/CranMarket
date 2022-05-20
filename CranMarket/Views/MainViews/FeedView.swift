@@ -16,11 +16,15 @@ struct FeedView: View {
     @State private var selectedItem : ItemModel?
     @State private var selectedFilter : String = ""
     
+    var searchedItems : [ItemModel] {
+        searchText.isEmpty ? vm.feeds : vm.feeds.filter({$0.title.contains(searchText)})
+    }
+    
     var body: some View {
         NavigationView{
             ScrollView {
                 VStack {
-                    ForEach(selectedFilter.isEmpty ? vm.feeds : vm.feeds.filter({$0.category == selectedFilter})) { item in
+                    ForEach(selectedFilter.isEmpty ? searchedItems : searchedItems.filter({$0.category == selectedFilter})) { item in
                         NavigationLink(destination: {
                             DescriptionView(item: item)
                         }, label: {

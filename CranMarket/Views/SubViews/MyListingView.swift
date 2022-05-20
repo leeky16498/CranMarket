@@ -43,6 +43,14 @@ struct MyListingView: View {
                             vm.deleteItems(item: item)
                         }, label: {
                             Image(systemName: "trash")
+                                .foregroundColor(.red)
+                        })
+                        .padding(.trailing, 2)
+                    
+                        Button(action: {
+                            
+                        }, label: {
+                            Image(systemName: "pencil")
                                 .foregroundColor(.blue)
                         })
                         

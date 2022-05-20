@@ -33,6 +33,7 @@ class FeedViewModel : ObservableObject {
     func fetchItems() {
         Firestore.firestore()
             .collection("Wholeitems")
+            .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, error in
                 if let error = error {
                     print("error to get data")
