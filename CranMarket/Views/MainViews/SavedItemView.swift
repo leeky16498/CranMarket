@@ -20,7 +20,7 @@ struct SavedItemView: View {
         NavigationView{
             ScrollView {
                 VStack {
-                    ForEach(vm.feeds.filter({$0.saved == true})) { item in
+                    ForEach(vm.savedFeeds) { item in
                         NavigationLink(destination: {
                             DescriptionView(item: item)
                         }, label: {
@@ -32,7 +32,7 @@ struct SavedItemView: View {
             }
             .navigationTitle("Saved Items")
             .onAppear {
-                vm.fetchItems()
+                vm.fetchSavedItems()
             }
         }
     }

@@ -24,23 +24,6 @@ struct UploadView: View {
     @State private var contactInfo : String = ""
     @State private var showMainView : Bool = false
     
-    let item : ItemModel?
-    
-    init(item : ItemModel?) {
-        self.item = item
-        if let item = item {
-            _title = State(initialValue: item.title)
-            _description = State(initialValue:  item.description)
-            _price = State(initialValue:  item.price)
-            _category = State(initialValue:  item.category)
-            _contactInfo = State(initialValue:  item.contactInfo)
-//            _showImagePicker = State(initialValue:  false)
-//            _selectedImages = State(initialValue:  [])
-//            _timeStamp = State(initialValue:  Date())
-//            _showMainView = State(initialValue:  false)
-        }
-    }
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -175,8 +158,11 @@ struct UploadView: View {
                             HStack {
                                 Text("Contact Info")
                                     .font(.headline)
+
                                 
                                 TextField("E-mail or Phone numbers", text: $contactInfo)
+                                    .autocapitalization(.none)
+                                    .keyboardType(.emailAddress)
                                     .padding()
                                     .frame(maxWidth : .infinity)
                                     .overlay(

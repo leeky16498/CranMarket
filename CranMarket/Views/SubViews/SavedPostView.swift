@@ -11,6 +11,7 @@ struct SavedPostView: View {
     
     let item : ItemModel
     @EnvironmentObject var vm : FeedViewModel
+    @State private var showDeleteSavedItem : Bool = false
     
     var body: some View {
         VStack {
@@ -43,5 +44,17 @@ struct SavedPostView: View {
             
             Divider()
         }//vst
+        .onTapGesture {}
+        .onLongPressGesture {
+            showDeleteSavedItem.toggle()
+        }
+        .actionSheet(isPresented: $showDeleteSavedItem) {
+            ActionSheet(title: Text("Do you wanna delete item in the list?"), message: Text("If you tap, the item will be deleted from your drawer"), buttons: [
+                .destructive(Text("Delete"), action: {
+                    vm.deleteSavedItem(item: item)
+                }),
+                .cancel()
+            ])
+        }
     }
 }

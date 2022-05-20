@@ -70,7 +70,7 @@ struct FeedView: View {
                         })
                         
                         NavigationLink(destination: {
-                            UploadView(item: nil)
+                            UploadView()
                         }, label: {
                             Image(systemName: "plus")
                         })

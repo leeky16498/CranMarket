@@ -55,7 +55,7 @@ struct MyListingView: View {
                                 .foregroundColor(.blue)
                         })
                         .sheet(isPresented: $showEditView) {
-                            UploadView(item: item)
+                            UploadView()
                         }
                         
                         Spacer()

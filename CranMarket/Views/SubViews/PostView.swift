@@ -53,7 +53,11 @@ struct PostView: View {
         .actionSheet(isPresented: $showSaveItemAlert) {
             ActionSheet(title: Text("Do you wanna save this item?"), message: Text("If you tap, the item will be saved in your drawer!"), buttons: [
                 .default(Text("Save the item"), action: {
-                    
+                    vm.storeSavedItemInformation(title: item.title, description: item.description, category: item.category, contactInfo: item.contactInfo, price: item.price, imageUrls: item.imageURL, seller: item.seller) { result in
+                        if result {
+                            vm.fetchSavedItems()
+                        }
+                    }
                 }),
                 .cancel()
             ])
