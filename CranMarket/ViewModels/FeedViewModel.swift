@@ -30,6 +30,18 @@ class FeedViewModel : ObservableObject {
             .delete()
     }
     
+    func editItem(item : ItemModel, title : String, description : String, category : String, contactInfo : String, price : String, imageUrls : [String], timeStamp : Date = Date(), saved : Bool, seller : String, completion : @escaping (_ result : Bool) -> ()) {
+        
+        let uid = AuthService.instance.makeUid()
+        
+        Firestore.firestore()
+            .collection("Wholeitems")
+            .document(item.id!)
+            .updateData(
+                ["title": title, "description" : description, "category" : category, "price" : price, "imageURL" : imageUrls, "timestamp" : timeStamp, "contactInfo" : contactInfo, "saved" : saved, "seller" : uid]
+            )
+    }
+    
     func fetchItems() {
         Firestore.firestore()
             .collection("Wholeitems")

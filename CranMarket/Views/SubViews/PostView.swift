@@ -11,6 +11,7 @@ import Kingfisher
 struct PostView: View {
     
     let item : ItemModel
+    @State private var showSaveItemAlert : Bool = false
     @StateObject var vm = FeedViewModel()
     
     var body: some View {
@@ -45,6 +46,18 @@ struct PostView: View {
             Divider()
         }//vst
         .padding(.horizontal)
+        .onTapGesture {}
+        .onLongPressGesture {
+            showSaveItemAlert.toggle()
+        }
+        .actionSheet(isPresented: $showSaveItemAlert) {
+            ActionSheet(title: Text("Do you wanna save this item?"), message: Text("If you tap, the item will be saved in your drawer!"), buttons: [
+                .default(Text("Save the item"), action: {
+                    
+                }),
+                .cancel()
+            ])
+        }
     }
 }
 

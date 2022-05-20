@@ -12,6 +12,7 @@ struct MyListingView: View {
     
     let item : ItemModel
     @StateObject var vm = FeedViewModel()
+    @State private var showEditView : Bool = false
     
     var body: some View {
         VStack {
@@ -48,11 +49,14 @@ struct MyListingView: View {
                         .padding(.trailing, 2)
                     
                         Button(action: {
-                            
+                            showEditView.toggle()
                         }, label: {
                             Image(systemName: "pencil")
                                 .foregroundColor(.blue)
                         })
+                        .sheet(isPresented: $showEditView) {
+                            UploadView(item: item)
+                        }
                         
                         Spacer()
                     }
